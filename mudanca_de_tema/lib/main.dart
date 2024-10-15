@@ -14,13 +14,11 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
     
-        primarySwatch:
-            Colors.orange , //usamos primarySwatch para definin a cor principal como laranja
-        scaffoldBackgroundColor:
-            const Color.fromARGB(255, 44, 44, 44) , // o scaffold é usado para definir a cor de fundo que nesse caso é preto
+        primarySwatch: Colors.orange , //usamos primarySwatch para definin a cor principal como laranja
+        scaffoldBackgroundColor: const Color.fromARGB(255, 44, 44, 44) , // o scaffold é usado para definir a cor de fundo que nesse caso é preto
         appBarTheme: const AppBarTheme(
-          backgroundColor: Colors //aqui damos prioridade para que a cor da appBar se mantenha laranja
-              .orange, 
+          backgroundColor: Colors.orange //aqui damos prioridade para que a cor da appBar se mantenha laranja
+              
         ),
         floatingActionButtonTheme: const FloatingActionButtonThemeData(
           backgroundColor: Colors
