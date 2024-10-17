@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 void main() {
   runApp(const MyApp());
 }
@@ -13,42 +12,48 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-    
-        primarySwatch: Colors.orange , //usamos primarySwatch para definin a cor principal como laranja
-        scaffoldBackgroundColor: const Color.fromARGB(255, 44, 44, 44) , // o scaffold é usado para definir a cor de fundo que nesse caso é preto
+        primarySwatch: Colors
+            .orange, //usamos primarySwatch para definin a cor principal como laranja
+        scaffoldBackgroundColor: const Color.fromARGB(255, 44, 44,
+            44), // o scaffold é usado para definir a cor de fundo que nesse caso é preto
         appBarTheme: const AppBarTheme(
-          backgroundColor: Colors.orange //aqui damos prioridade para que a cor da appBar se mantenha laranja
-              
-        ),
+            backgroundColor: Colors
+                .orange //aqui damos prioridade para que a cor da appBar se mantenha laranja
+
+            ),
         floatingActionButtonTheme: const FloatingActionButtonThemeData(
-          backgroundColor: Colors
-              .orange, // Define a cor do botao como laranja
+          backgroundColor: Colors.orange, // Define a cor do botao como laranja
         ),
-       
       ),
       home: const MyHomePage(title: 'Modelo de mudança de tema'),
     );
   }
 }
-
+// a class sempre vai definir a funcionalidade do widget
+// StatefulWidget indica que após a interação muda o estado da pagina
 class MyHomePage extends StatefulWidget {
+// const myhomepage garante que o titulo nao seja mudado enquanto o widget estiver em uso
   const MyHomePage({super.key, required this.title});
 
   final String title;
-
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  //CreateState atribui o estádo mutavel a nova classe "_myhomepagestate"
+  //a nova classe com o estado atribuida nao precisa ter um nome que combine com a classe criada anteriormente
+  State<MyHomePage> createState() => _MyHomePageState();//o underline na classe significa que ele é privado ao arquivo em que está definido
 }
-
+//aqui indicamos que myhomepagestate pode alterar o estado de myhomepage
 class _MyHomePageState extends State<MyHomePage> {
+  //aqui declaramos uma nova variavel que indica o valor inicial do contador
+  //lembre-se de que por conter o underline se torna uma variavel privada 
   int _counter = 0;
 
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
+  void _incrementCounter() { //void define um metodo vazio ou seja, que nao retorna nada, por isso "void"
+    setState(() { //setstate notifica que o estado foi alterado e que a interface tem que ser reconstruida
+                  // dentro dos parentes contém um callback anonimo que possui o código para alterar a pagina
+      _counter++; //adicionamos o operador de incremento "++" que aumenta o valor da variavel
     });
   }
-
+//usar o "@override" informa que estamos modificando o comportamento de um método
   @override
   Widget build(BuildContext context) {
     return Scaffold(
